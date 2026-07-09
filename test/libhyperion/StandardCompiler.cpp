@@ -119,6 +119,9 @@ void checkLinkReferencesSchema(Json::Value const& _contractResult)
 				BOOST_TEST_REQUIRE(linkReferenceResult[fileName][libraryName][i].isObject());
 				BOOST_TEST_REQUIRE(linkReferenceResult[fileName][libraryName][i].size() == 2);
 				BOOST_TEST_REQUIRE(linkReferenceResult[fileName][libraryName][i]["length"].isUInt());
+				BOOST_TEST_REQUIRE(
+					linkReferenceResult[fileName][libraryName][i]["length"].asUInt() == hyperion::AddressBytes
+				);
 				BOOST_TEST_REQUIRE(linkReferenceResult[fileName][libraryName][i]["start"].isUInt());
 			}
 		}
